@@ -1,13 +1,62 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Navbar from '@/components/Navbar';
+import VoiceAssistant from '@/components/VoiceAssistant';
+import LiveChat from '@/components/LiveChat';
+import AuthModal from '@/components/AuthModal';
+import Home from '@/pages/Home';
+import SubmitEWaste from '@/pages/SubmitEWaste';
+import Rewards from '@/pages/Rewards';
+import Events from '@/pages/Events';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Index = () => {
+  const [language, setLanguage] = useState('en');
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+
+  const handleAuthenticate = (email: string, name?: string) => {
+    setIsAuthenticated(true);
+    setUserEmail(email);
+    setIsAuthModalOpen(false);
+  };
+
+  const handleSignOut = () => {
+    setIsAuthenticated(false);
+    setUserEmail('');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Navbar
+          language={language}
+          onLanguageChange={setLanguage}
+          isAuthenticated={isAuthenticated}
+          onSignIn={() => setIsAuthModalOpen(true)}
+          onSignOut={handleSignOut}
+          userEmail={userEmail}
+        />
+        
+        <Routes>
+          <Route path="/" element={<Home language={language} />} />
+          <Route path="/submit" element={<SubmitEWaste language={language} />} />
+          <Route path="/rewards" element={<Rewards language={language} />} />
+          <Route path="/events" element={<Events language={language} />} />
+          <Route path="/about" element={<Home language={language} />} />
+        </Routes>
+
+        <VoiceAssistant language={language} />
+        <LiveChat language={language} />
+        
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={() => setIsAuthModalOpen(false)}
+          onAuthenticate={handleAuthenticate}
+          language={language}
+        />
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 

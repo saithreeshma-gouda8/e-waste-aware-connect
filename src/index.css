@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* E-Waste Management System Design System
+   Sustainable, eco-friendly design with nature-inspired colors
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Clean white background with dark text */
+    --background: 0 0% 98%;
+    --foreground: 210 100% 6%;
 
+    /* Card colors - Slightly off-white for depth */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 100% 6%;
 
+    /* Popover colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 100% 6%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary colors - Sustainable green theme */
+    --primary: 142 69% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 142 69% 45%;
+    --primary-dark: 142 69% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary colors - Earth tones */
+    --secondary: 45 21% 93%;
+    --secondary-foreground: 142 69% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted colors - Soft neutrals */
+    --muted: 45 21% 96%;
+    --muted-foreground: 210 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent colors - Blue-green for highlights */
+    --accent: 180 54% 40%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 180 54% 50%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Success colors - Bright green for positive actions */
+    --success: 120 100% 35%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning colors - Orange for caution */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* Destructive colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input colors */
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 142 69% 35%;
+
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(142 69% 35% / 0.9), hsl(180 54% 40% / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-button: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+
+    /* Shadow definitions */
+    --shadow-soft: 0 2px 10px hsl(210 20% 20% / 0.08);
+    --shadow-medium: 0 4px 20px hsl(210 20% 20% / 0.12);
+    --shadow-strong: 0 8px 30px hsl(210 20% 20% / 0.16);
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +136,66 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom utility classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-primary hover:bg-primary-light text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-smooth shadow-medium hover:shadow-strong transform hover:scale-105;
+  }
+
+  /* Eco button variant */
+  .btn-eco {
+    @apply gradient-primary text-white px-6 py-3 rounded-lg font-medium transition-smooth shadow-soft hover:shadow-medium transform hover:scale-105;
+  }
+
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-soft;
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
   }
 }
