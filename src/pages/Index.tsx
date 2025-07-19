@@ -7,7 +7,6 @@ import Home from '@/pages/Home';
 import SubmitEWaste from '@/pages/SubmitEWaste';
 import Rewards from '@/pages/Rewards';
 import Events from '@/pages/Events';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Index = () => {
   const [language, setLanguage] = useState('en');
@@ -27,36 +26,28 @@ const Index = () => {
   };
 
   return (
-    <BrowserRouter>
-      <div className="min-h-screen">
-        <Navbar
-          language={language}
-          onLanguageChange={setLanguage}
-          isAuthenticated={isAuthenticated}
-          onSignIn={() => setIsAuthModalOpen(true)}
-          onSignOut={handleSignOut}
-          userEmail={userEmail}
-        />
-        
-        <Routes>
-          <Route path="/" element={<Home language={language} />} />
-          <Route path="/submit" element={<SubmitEWaste language={language} />} />
-          <Route path="/rewards" element={<Rewards language={language} />} />
-          <Route path="/events" element={<Events language={language} />} />
-          <Route path="/about" element={<Home language={language} />} />
-        </Routes>
+    <div className="min-h-screen">
+      <Navbar
+        language={language}
+        onLanguageChange={setLanguage}
+        isAuthenticated={isAuthenticated}
+        onSignIn={() => setIsAuthModalOpen(true)}
+        onSignOut={handleSignOut}
+        userEmail={userEmail}
+      />
+      
+      <Home language={language} />
 
-        <VoiceAssistant language={language} />
-        <LiveChat language={language} />
-        
-        <AuthModal
-          isOpen={isAuthModalOpen}
-          onClose={() => setIsAuthModalOpen(false)}
-          onAuthenticate={handleAuthenticate}
-          language={language}
-        />
-      </div>
-    </BrowserRouter>
+      <VoiceAssistant language={language} />
+      <LiveChat language={language} />
+      
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onAuthenticate={handleAuthenticate}
+        language={language}
+      />
+    </div>
   );
 };
 
