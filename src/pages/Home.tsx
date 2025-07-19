@@ -11,7 +11,7 @@ interface HomeProps {
 
 const translations = {
   en: {
-    heroTitle: 'AI-Powered E-Waste Management',
+    heroTitle: 'E-Waste Management',
     heroSubtitle: 'Transform your electronic waste into environmental impact. Safe disposal, real-time tracking, and rewarding experiences.',
     heroButton: 'Submit E-Waste Now',
     learnMore: 'Learn More',
@@ -41,7 +41,7 @@ const translations = {
     ctaButton: 'Get Started Today'
   },
   te: {
-    heroTitle: 'AI-శక్తితో E-వేస్ట్ మేనేజ్‌మెంట్',
+    heroTitle: 'E-వేస్ట్ మేనేజ్‌మెంట్',
     heroSubtitle: 'మీ ఎలక్ట్రానిక్ వ్యర్థాలను పర్యావరణ ప్రభావంగా మార్చండి. సురక్షితమైన పారవేయడం, రియల్ టైమ్ ట్రాకింగ్ మరియు రివార్డింగ్ అనుభవాలు.',
     heroButton: 'ఇప్పుడే E-వేస్ట్ సమర్పించండి',
     learnMore: 'మరింత తెలుసుకోండి',
@@ -71,7 +71,7 @@ const translations = {
     ctaButton: 'ఈ రోజే ప్రారంభించండి'
   },
   hi: {
-    heroTitle: 'AI-संचालित ई-वेस्ट प्रबंधन',
+    heroTitle: 'ई-वेस्ट प्रबंधन',
     heroSubtitle: 'अपने इलेक्ट्रॉनिक कचरे को पर्यावरणीय प्रभाव में बदलें। सुरक्षित निपटान, रियल-टाइम ट्रैकिंग, और पुरस्कृत अनुभव।',
     heroButton: 'अभी ई-वेस्ट जमा करें',
     learnMore: 'और जानें',
@@ -101,7 +101,7 @@ const translations = {
     ctaButton: 'आज ही शुरू करें'
   },
   ta: {
-    heroTitle: 'AI-இயங்கும் ஈ-கழிவு மேலாண்மை',
+    heroTitle: 'ஈ-கழிவு மேலாண்மை',
     heroSubtitle: 'உங்கள் மின்னணு கழிவுகளை சுற்றுச்சூழல் தாக்கமாக மாற்றுங்கள். பாதுகாப்பான அகற்றல், நிகழ்நேர கண்காணிப்பு மற்றும் வெகுமதி அனுபவங்கள்.',
     heroButton: 'இப்போதே ஈ-கழிவுகளை சமர்ப்பிக்கவும்',
     learnMore: 'மேலும் அறிக',
